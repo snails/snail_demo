@@ -1,0 +1,30 @@
+<h1 class="align_center">基本资料修改</h1>
+<!-- It's for the spec profile common form -->
+<% form_tag(@spec_path,:class => 'col col_5') do %>
+  <fieldset class = 's_column'>
+    <legend>基本资料</legend>
+    <div>
+      <%= label_tag 'gender' %>
+      <%= radio_button :spec, :gender,'男' %>男<br/>      
+      <%= radio_button :spec, :gender,'女' %>女
+    </div>
+
+    <div>
+      <%= label_tag 'birthdate' %>&nbsp;
+      <%= date_select :spec, :birthdate,
+        :start_year => Spec::START_YEAR ,
+        :end_year => Time.now.year,
+        :include_blank => true,
+        :order => [:year,:month,:day] %>
+      </div>
+      <div>
+        <%= label_tag 'city' %>
+        <%=text_field :spec, :city %>
+      </div>  
+      <div>
+        <%= label_tag 'occupatation' %>
+        <%= text_field :spec, :occupatation %>
+      </div>
+      <%= submit_tag 'Update',:class => 'align_center' %>
+    </fieldset>
+  <% end %>

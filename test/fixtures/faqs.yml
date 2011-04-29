@@ -1,0 +1,35 @@
+# == Schema Information
+# Schema version: 20110429012823
+#
+# Table name: faqs
+#
+#  id      :integer(4)      not null, primary key
+#  hobby   :text
+#  music   :text
+#  movie   :text
+#  sport   :text
+#  book    :text
+#  skill   :text
+#  idol    :text
+#  user_id :integer(4)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  hobby: MyText
+  music: MyText
+  movie: MyText
+  sport: MyText
+  book: MyText
+  skill: MyText
+  idol: MyText
+
+two:
+  hobby: MyText
+  music: MyText
+  movie: MyText
+  sport: MyText
+  book: MyText
+  skill: MyText
+  idol: MyText

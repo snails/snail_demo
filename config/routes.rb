@@ -1,4 +1,18 @@
 SnailDemo::Application.routes.draw do
+
+  #用户兴趣爱好映射
+  match 'users/:id/faq/edit' => 'faq#edit'
+
+  #用户联系方式映射
+  match 'users/:id/contact/edit' => 'contact#edit'
+
+  #用户基本资料映射
+  match 'users/:id/spec/edit' => 'spec#edit'
+
+  #用户配置文件映射
+  match 'users/:id/profile' => 'profile#show'
+
+  #devise默认映射
   devise_for :users
 
   #设置自定义的登录、注销路径
@@ -6,16 +20,16 @@ SnailDemo::Application.routes.draw do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
     get '/signup' => 'devise/registrations#new'
-  end
-    
+  end    
 
   #设置根路径
   root :to => 'pages#home'
 
   #设置关于我们映射
   match '/about' => "pages#about"
+
   #帮助路径映射
-  match 'help' => "pages#help"
+  match '/help' => "pages#help"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

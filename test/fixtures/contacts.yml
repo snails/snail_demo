@@ -1,0 +1,31 @@
+# == Schema Information
+# Schema version: 20110428135724
+#
+# Table name: contacts
+#
+#  id      :integer(4)      not null, primary key
+#  user_id :integer(4)
+#  qq      :string(255)     default("")
+#  msn     :string(255)     default("")
+#  phone   :string(255)     default("")
+#  email   :string(255)     default("")
+#  site    :string(255)     default("")
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  qq: MyString
+  msn: MyString
+  phone: MyString
+  email: MyString
+  site: MyString
+
+two:
+  user_id: 1
+  qq: MyString
+  msn: MyString
+  phone: MyString
+  email: MyString
+  site: MyString

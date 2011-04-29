@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col col_5 left" >
+
+    <table>
+      <thead>基本资料</thead>
+      <tbody>
+        <!--这里会自动使用spec_profile临时变量，可以在_spec_profile.html.erb中使用-->
+        <%= render :partial => 'spec_profile', :collection => Spec::ALL_FIELDS %>
+      </tbody>
+    </table>
+
+    <table>
+      <thead>联系方式</thead>
+      <tbody>
+        <%= render :partial => 'contact_profile', :collection => Contact::ALL_FIELDS %>
+      </tbody>
+    </table>
+  
+    <table>
+      <thead>兴趣爱好</thead>
+      <tbody>
+        <%= render :partial => 'faq_profile', :collection => Faq::ALL_FIELDS %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

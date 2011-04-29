@@ -1,0 +1,10 @@
+<h1 class="align_center">兴趣爱好修改</h1>
+<!-- It's for the faq profile common form -->
+<% form_tag(@faq_path,:class => 'col col_5') do %>
+  <fieldset class = 's_column'>
+    <legend>兴趣爱好</legend>
+    <%= render :partial => 'faq_text_field', :collection => Faq::ALL_FIELDS %>
+    <%= submit_tag 'Update',:class => 'align_center' %>
+  </fieldset>
+<% end %>
+

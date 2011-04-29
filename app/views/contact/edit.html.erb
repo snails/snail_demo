@@ -1,0 +1,34 @@
+<h1 class="align_center">联系方式修改</h1>
+<!-- It's for the contact profile  form -->
+<% form_tag(@contact_path,:class => 'col col_5') do %>
+  <fieldset class = 's_column'>
+    <legend>联系方式</legend>
+
+      <div>
+        <%= label_tag 'qq' %>
+        <%=text_field :contact, :qq %>
+      </div>  
+
+
+      <div>
+        <%= label_tag 'msn' %>
+        <%= text_field :contact, :msn %>
+      </div>
+
+      <div>
+        <%= label_tag 'phone' %>
+        <%= text_field :contact, :phone %>
+      </div>
+
+      <div>
+        <%= label_tag 'email' %>
+        <%= email_field :contact, :email %>
+      </div>
+
+      <div>
+        <%= label_tag 'site' %>
+        <%= url_field :contact, :site %>
+      </div>
+      <%= submit_tag 'Update',:class => 'align_center' %>
+    </fieldset>
+  <% end %>

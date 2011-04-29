@@ -10,11 +10,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110427021741) do
+ActiveRecord::Schema.define(:version => 20110429012823) do
+
+  create_table "contacts", :force => true do |t|
+    t.integer "user_id"
+    t.string  "qq",      :default => ""
+    t.string  "msn",     :default => ""
+    t.string  "phone",   :default => ""
+    t.string  "email",   :default => ""
+    t.string  "site",    :default => ""
+  end
+
+  add_index "contacts", ["user_id"], :name => "index_contacts_on_user_id"
+
+  create_table "faqs", :force => true do |t|
+    t.text    "hobby"
+    t.text    "music"
+    t.text    "movie"
+    t.text    "sport"
+    t.text    "book"
+    t.text    "skill"
+    t.text    "idol"
+    t.integer "user_id"
+  end
+
+  add_index "faqs", ["user_id"], :name => "index_faqs_on_user_id"
+
+  create_table "specs", :force => true do |t|
+    t.integer "user_id",                      :null => false
+    t.string  "gender"
+    t.date    "birthdate"
+    t.string  "city",         :default => ""
+    t.string  "occupatation", :default => ""
+  end
+
+  add_index "specs", ["user_id"], :name => "index_specs_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -25,9 +59,9 @@ ActiveRecord::Schema.define(:version => 20110427021741) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin"
+    t.boolean  "admin",                                 :default => false
     t.string   "name"
-    t.boolean  "actived"
+    t.boolean  "actived",                               :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
