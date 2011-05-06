@@ -1,0 +1,39 @@
+<%= render :partial => 'show' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @album.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @album.description %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @album.total %>
+</p>
+
+<p>
+  <b>Privacy:</b>
+  <%= @album.privacy %>
+</p>
+
+<div id="photos">
+  <%= render :partial => @album.photos %>
+</div>
+
+<h3>上传图片</h3>
+<%= form_for [@user,@album,Photo.new(:album_id => @album.id)],:html => { :multipart => true } do |f| %>
+  <%= f.hidden_field :album_id, "value" => @album.id %>
+  <p>
+    <%= f.file_field :image %>
+  </p> 
+  <p><%= f.submit "Upload" %></p>
+<% end %>
+
+<br/>
+<%= link_to 'Edit', edit_user_album_path(@user,@album) %> |
+<%= link_to 'Back', user_albums_path %>

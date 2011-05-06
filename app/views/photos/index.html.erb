@@ -1,0 +1,21 @@
+<h1>Listing photos</h1>
+
+<table>
+  <tr>
+    <th>Album</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @photos.each do |photo| %>
+  <tr>
+    <td><%= photo.description %></td>
+    <td><%= link_to 'Show', [@user,@album,photo] %></td>
+    <td><%= link_to 'Edit', edit_user_album_photo_path(photo,@album,@user) %></td>
+    <td><%= link_to 'Destroy', [@user,@album,photo], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

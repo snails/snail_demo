@@ -13,6 +13,18 @@ gem 'devise'
 gem 'mongrel'
 #Gem for the page slice
 gem 'will_paginate','3.0pre'
+#Gem for upload attachements 2011-05-02
+#Usage rails generate paperclip photo<model> data<attachement_name>
+#use has-attachment_file: <attachement_name>
+gem 'paperclip'
+#Gem for MIME type files 2011-05-02
+gem 'mime-types', :require => 'mime/types'
+#Gem for using the Prototype ujs instead of jquery-rails ujs
+#Usage rails generate jquery-rails:install
+gem 'jquery-rails'
+#Gem for uuidtools 
+#Usage UUIDTools::UUID.parse_raw()
+gem 'uuidtools'
 
 # Use unicorn as the web server
 # gem 'unicorn'

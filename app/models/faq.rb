@@ -1,4 +1,20 @@
 # == Schema Information
+# Schema version: 20110505023421
+#
+# Table name: faqs
+#
+#  id      :integer(4)      not null, primary key
+#  hobby   :text
+#  music   :text
+#  movie   :text
+#  sport   :text
+#  book    :text
+#  skill   :text
+#  idol    :text
+#  user_id :integer(4)
+#
+
+# == Schema Information
 # Schema version: 20110429012823
 #
 # Table name: faqs

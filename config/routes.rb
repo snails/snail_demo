@@ -1,5 +1,8 @@
 SnailDemo::Application.routes.draw do
 
+
+  resources :photos
+
   #用户兴趣爱好映射
   match 'users/:id/faq/edit' => 'faq#edit'
 
@@ -21,6 +24,15 @@ SnailDemo::Application.routes.draw do
     get '/logout' => 'devise/sessions#destroy'
     get '/signup' => 'devise/registrations#new'
   end    
+
+    resources :users do
+      #resources :profile
+     # resources :faq
+    #  resources :spec
+      resources :albums do
+        resources :photos
+      end
+   end
 
   #设置根路径
   root :to => 'pages#home'
