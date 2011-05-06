@@ -1,8 +1,9 @@
 SnailDemo::Application.routes.draw do
 
 
-  resources :photos
-
+  #Configed by the kindeditor
+  get 'kindeditor/images_list'
+  post 'kindeditor/upload'
   #用户兴趣爱好映射
   match 'users/:id/faq/edit' => 'faq#edit'
 
@@ -32,6 +33,7 @@ SnailDemo::Application.routes.draw do
       resources :albums do
         resources :photos
       end
+      resources :posts
    end
 
   #设置根路径

@@ -22,6 +22,8 @@
 #
 
 class User < ActiveRecord::Base
+  #博客关联
+  has_many :posts,  :dependent => :destroy
   #相册关联
   has_many :albums, :dependent => :destroy
   #个人信息关联

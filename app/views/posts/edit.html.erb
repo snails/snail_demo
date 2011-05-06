@@ -1,0 +1,8 @@
+<%= kindeditor_javacript_include_tag %>
+
+<h1>Editing post</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', user_post_path(@user,@post) %> |
+<%= link_to 'Back', user_posts_path(@user) %>

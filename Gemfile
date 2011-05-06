@@ -25,6 +25,9 @@ gem 'jquery-rails'
 #Gem for uuidtools 
 #Usage UUIDTools::UUID.parse_raw()
 gem 'uuidtools'
+#Gem for kindeditor
+#
+gem 'kindeditor'
 
 # Use unicorn as the web server
 # gem 'unicorn'
