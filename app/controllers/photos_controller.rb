@@ -1,4 +1,8 @@
+#encoding: utf-8
 class PhotosController < ApplicationController
+   #需要用户登录，才可以进行修改
+  before_filter :authenticate_user!
+
   # GET /photos
   # GET /photos.xml
   def index

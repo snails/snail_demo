@@ -1,5 +1,8 @@
 #encoding: utf-8
 class AlbumsController < ApplicationController
+  #需要用户登录，才可以进行修改
+  before_filter :authenticate_user!
+
   # GET /albums
   # GET /albums.xml
   def index
@@ -16,9 +19,6 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.xml
   def show
-    params.each do |key,value|
-      puts key.to_s+'-->'+value.to_s
-    end
     @user = User.find(params[:user_id]) 
     @album = Album.find(params[:id])
     @title = "相册——#{@album.name}"

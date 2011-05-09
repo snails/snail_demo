@@ -1,4 +1,9 @@
+#encoding: utf-8
 class PostsController < ApplicationController
+  #需要用户登录，才可以进行修改
+  before_filter :authenticate_user!
+
+
   # GET /posts
   # GET /posts.xml
   def index

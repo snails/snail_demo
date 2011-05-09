@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* ** ** forms ** ** */
-form fieldset {-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius:3px; padding:10px; border:1px solid #eee; }
+form fieldset {-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius:3px; padding:10px; border:2px solid #606060; }
 form fieldset legend {font-size:1.4em; padding:0 5px;}
 form input[type=text], form input[type=email], form input[type=url], form input[type=password], form input[type=number], textarea {
 		-moz-border-radius: 3px; 
@@ -15,7 +15,7 @@ form .textarea textarea {-moz-border-radius: 3px;
 		-webkit-border-radius: 3px; 
 		border-radius:3px; 
 		margin-bottom:5px; 
-		min-height:150px;
+		min-height:50px;
 		border:1px solid #ccc; 
 		padding:4px 0 1px 5px; width:100%;}
 /*form .textarea {height:auto;}*/

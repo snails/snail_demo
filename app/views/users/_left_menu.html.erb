@@ -1,0 +1,39 @@
+<div class="col col_3"><!-- Left Part -->
+
+  <!-- Avatar -->
+  <div class="avatar align_center">
+    <%= link_to image_tag('avatar.png'),@user %>
+    <h3><%= @user.name %></h3>
+  </div>
+
+  <div class="operation">
+    <ul>
+      <li>
+      <%= link_to new_user_post_path(@user) do %>
+        <%= image_tag 'article.png', :size => '20x20' %>发表日志
+      <% end %>
+      </li>
+
+      <li>
+      <%= link_to user_albums_path(@user) do %>
+        <%= image_tag 'picture.png', :size => '20x20' %>上传图片
+      <% end %>          
+      </li>
+
+      <li>
+        <%= link_to user_profile_index_path(@user)  do %>
+          <%= image_tag 'modify.png', :size => '20x20' %>个人资料
+        <% end %>
+      </li>
+
+      <li>
+      <%= link_to '#' do %>
+        <%= image_tag 'message.png', :size => '20x20' %>消息管理
+      <% end %>
+      </li>
+    </ul>
+
+  </div>
+
+</div><!-- end of left-->
+

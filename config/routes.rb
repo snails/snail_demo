@@ -14,7 +14,7 @@ SnailDemo::Application.routes.draw do
   match 'users/:id/spec/edit' => 'spec#edit'
 
   #用户配置文件映射
-  match 'users/:id/profile' => 'profile#show'
+  #match 'users/:id/profile' => 'profile#show'
 
   #devise默认映射
   devise_for :users
@@ -27,9 +27,9 @@ SnailDemo::Application.routes.draw do
   end    
 
     resources :users do
-      #resources :profile
-     # resources :faq
-    #  resources :spec
+      resources :profile, :only => ['index']
+      #resources :faq
+      #resources :spec
       resources :albums do
         resources :photos
       end

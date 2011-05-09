@@ -1,2 +1,22 @@
-<h1>Profile#index</h1>
-<p>There are no profile for the user you want to watch.</p>
+<%= render 'users/visitor_left_menu' %>
+<div class="col col_10">
+  <div class="profile">
+    <table>
+      <caption>基本资料</caption>
+        <!--这里会自动使用spec_profile临时变量，可以在_spec_profile.html.erb中使用-->
+        <%= render :partial => 'spec_profile', :collection => Spec::ALL_FIELDS %>
+    </table>
+
+    <table>
+      <caption>联系方式</caption>
+        <%= render :partial => 'contact_profile', :collection => Contact::ALL_FIELDS %>
+    </table>
+  
+    <table>
+      <caption>兴趣爱好</caption>
+        <%= render :partial => 'faq_profile', :collection => Faq::ALL_FIELDS %>
+    </table>
+  </div>
+</div>
+
+<%= render 'users/right_menu' %>

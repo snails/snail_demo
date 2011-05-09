@@ -1,17 +1,36 @@
-<h2>Sign in</h2>
+<div class="col col_5">
+  
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <fieldset class="s_column">
+      <legend>Sign In</legend>
+      <p><%= f.label :email %><br />
+      <%= f.email_field :email %></p>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+      <p><%= f.label :password %><br />
+      <%= f.password_field :password %></p>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
+      <% if devise_mapping.rememberable? -%>
+        <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+      <% end -%>
 
-  <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
-  <% end -%>
+      <p><%= f.submit "Sign in" %></p>
 
-  <p><%= f.submit "Sign in" %></p>
-<% end %>
+      <%= render :partial => 'devise/shared/links' %>
+    </fieldset>
+  <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+</div>
+
+<div class="col col_11">
+  <article style="margin-top: 90px;">
+  <p>“蜗牛网”是由“奋斗的蜗牛”团队打造的SNS网站。在这里你不仅可以交到新的朋友，而且可以用新酷的方式
+发表自己的微博。你可以在这里享受到一站式服务，不用再多次登录不同的网站来发表自己的心情、日志等。</p>
+<p>“蜗牛网”使用以下几种方式让你获得真实的友谊和新酷的微博经历:</p>
+<ul>
+  <li>所有用户注册的时候，都必须验证信息的准确性，甚至需要邀请码来达到此目的。</li>
+  <li>我们可以让你的摄像头从仅仅的视频聊天用途中，添加一条:我们可以用摄像头来发微博！</li>
+  <li>我们可以提供大家有兴趣的事物的“圈子”，大家可以在这里交流，聊天。</li>
+  <li>我们有年轻的团队为你打造专属于我们年轻人的天地</li>
+</ul>
+ </article>
+</div>

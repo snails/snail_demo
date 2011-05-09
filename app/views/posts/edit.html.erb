@@ -1,8 +1,12 @@
+<div class="col col_14">
 <%= kindeditor_javacript_include_tag %>
 
 <h1>Editing post</h1>
 
-<%= render 'form' %>
+<div class="posts">
+  <%= render 'form' %>
+</div>
 
 <%= link_to 'Show', user_post_path(@user,@post) %> |
 <%= link_to 'Back', user_posts_path(@user) %>
+</div>

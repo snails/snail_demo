@@ -6,17 +6,22 @@
     <%= render 'layouts/stylesheets' %>
   </head>
   <body>
-    <header class="row">
-      <%= render 'layouts/header' %>
-    </header><!-- end of header -->
-
+    <div class="row">
+      <header>
+        <%= render 'layouts/header' %>
+      </header><!-- end of header -->
+    </div>
 
     <section class="row">
-      <div>
-        <%= flash[:notice] %>
-        <%= flash[:alert] %>
+      <div class="documentation">
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+        <div class="alert">
+          <%= flash[:alert] %>
+        </div>
       </div>
-      <%= yield %>
+        <%= yield %>
     </section><!-- end of section -->
 
 

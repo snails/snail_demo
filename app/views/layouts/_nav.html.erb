@@ -1,13 +1,67 @@
-<nav>
-	<ul>
-    <li><%= link_to 'Home',root_path %></li>
+<nav class="col col_11">
+  <ul id="menu">    
     <% if current_user.nil? %>
+      <li><%= link_to 'Home',root_path %></li>
       <li><%= link_to 'Sign in',login_path %></li>
       <li><%= link_to 'Sign up',signup_path %></li>
     <% else %>
+      <li><%= link_to 'Home',root_path %></li>      
+      <li>
+      <%= link_to 'Personal' %>
+      <ul style="display:none;" class="subnav">
+        <li>
+        <%= image_tag 'corner_inset_left.png', :class => 'corner_inset_left' %>
+        <%= link_to 'Theme','#' %>
+        <%= image_tag 'corner_inset_right.png', :class => 'corner_inset_right' %>
+        </li>
+        <li><%= link_to 'Profile',"/users/#{current_user.id}/profile" %></li>
+        <%= render 'layouts/menu_right' %>
+      </ul>
+      </li>
+
+      <li>
+      <%= link_to 'Friends', '#' %>
+      <ul>
+        <li>
+        <%= image_tag 'corner_inset_left.png', :class => 'corner_inset_left' %>
+        <%= link_to 'Search','#' %>
+        <%= image_tag 'corner_inset_right.png', :class => 'corner_inset_right'%>
+        </li>
+        <li><%= link_to 'Manage','*' %></li>
+        <%= render 'layouts/menu_right' %> 
+      </ul>
+      </li>
+
+
+      <li>
+        <%= link_to 'Applies','#' %>
+      	<ul>
+          <li>
+          <%= image_tag 'corner_inset_left.png', :class => 'corner_inset_left' %>
+            <%= link_to 'Posts',user_posts_path(current_user) %>
+            <%= image_tag 'corner_inset_right.png', :class => 'corner_inset_right' %>
+          </li>
+          <li>
+            <%= link_to 'Albums',user_albums_path(current_user) %>
+          </li>
+          <li>
+            <%= link_to 'Messages','#' %>
+          </li>
+          <%= render 'layouts/menu_right' %>
+      	</ul>
+      </li>
+
       <li><%= link_to 'Logout',logout_path %></li>
     <% end %>
     <li><%= link_to 'About us',about_path %></li>
     <li><%= link_to 'Help',help_path %></li>
-	</ul>
+    <% unless current_user.nil? %>
+    <li class="searchContainer">
+    <div>
+      <input type="text" id="searchField"/>
+      <%= image_tag 'find.png', :onclick => "alert('You have click search')"%>
+    </div>
+    </li>
+  <% end %>
+  </ul>
 </nav>

@@ -1,0 +1,9 @@
+<!-- if the user is the owner then show the edit operatiron, else just show some links -->
+<% if @user == current_user %>
+  <%= render 'left_menu' %>
+<% else %>
+  <%= render 'visitor_left_menu' %>
+<% end %>
+
+<%= render 'middle' %>
+<%= render 'right_menu' %>

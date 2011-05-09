@@ -1,6 +1,9 @@
-<% if current_user.nil? %>
-  <%= link_to 'Sign in',login_path %>
-<% else %>
-  已经登录了！
-<% end %>
+<%= render 'users/left_menu' %>
 
+<!--Shutcut for some ordinary operation -->
+<%= render 'users/home_middle' %>
+
+<!-- things on the right side -->
+<%= render 'users/right_menu' %>
+
+<div class="clear"></div>

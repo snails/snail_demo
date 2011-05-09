@@ -1,0 +1,29 @@
+<div class="col col_10"><!-- middle Part -->
+  <% if @user == current_user %>
+  <!-- new microblog form -->
+  <div class="microblog">
+    <span>发表微博:</span>
+    <form action = '#'>
+      <input type="textarea"/>
+      <input type="submit" value="Submit"/>
+    </form>
+  </div>
+<% end %>
+
+  <div class="feeds">
+    <div class="author"><%= @user.name %></div>
+    <div class="content">DHH is a good guy.</div>
+  </div>
+
+  <div class="feeds">
+    <div class="author"><%= @user.name %></div>
+    <div class="content">中国的未来互联网依然是蓝海，电子商务，移动互联网，云计算。</div>
+  </div>
+
+   <div class="feeds">
+     <div class="author"><%= @user.name %></div>
+     <div class="content">来自杭州的软件业界应该团结起来，共同合作，为中国互联网的发展创造合力，而不是互相内斗，损耗。不要学习360和腾讯的做法。</div>
+  </div>
+
+</div><!-- end of middle -->
+
