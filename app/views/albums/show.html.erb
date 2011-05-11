@@ -18,7 +18,8 @@
 <%= javascript_include_tag 'ad-gallery' %>
 <script type="text/javascript">
   $(function(){
-      var galleries = $('.ad-gallery').adGallery();
+      //下面必须使用绝对路径，默认的loader.gif为当前的相对路径，有问题。
+      var galleries = $('.ad-gallery').adGallery({loader_image:'/images/loader.gif'});
 
       $('#toggle-slideshow').click(
         function(){
