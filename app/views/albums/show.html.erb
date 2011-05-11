@@ -1,39 +1,99 @@
-<%= render :partial => 'show' %>
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Name:</b>
-  <%= @album.name %>
+<b>Name:</b>
+<%= @album.name %>
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @album.description %>
+<b>Description:</b>
+<%= @album.description %>
 </p>
 
 <p>
-  <b>Total:</b>
-  <%= @album.total %>
+<b>Total:</b>
+<%= @album.total %>
 </p>
 
-<p>
-  <b>Privacy:</b>
-  <%= @album.privacy %>
-</p>
+ <!-- if the photos are not empty, then display them; else hide them -->
+<%= stylesheet_link_tag 'ad-gallery', :media => 'screen' %>
+<%= javascript_include_tag 'ad-gallery' %>
+<script type="text/javascript">
+  $(function(){
+      var galleries = $('.ad-gallery').adGallery();
 
-<div id="photos">
-  <%= render :partial => @album.photos %>
-</div>
+      $('#toggle-slideshow').click(
+        function(){
+        galleries[0].slideshow.toggle();
+        return false;
+        }
+        );
 
-<h3>上传图片</h3>
-<%= form_for [@user,@album,Photo.new(:album_id => @album.id)],:html => { :multipart => true } do |f| %>
-  <%= f.hidden_field :album_id, "value" => @album.id %>
-  <p>
-    <%= f.file_field :image %>
-  </p> 
-  <p><%= f.submit "Upload" %></p>
-<% end %>
+      $('toggle-description').click(
+        function() {
+        if(!galleries[0].settings.description_wrapper) {
+        galleries[0].settings.description_wrapper = $('#descriptions');
+        } else {
+        galleries[0].settings.description_wrapper = false;
+        }
+        return false;
+        }
+        );
+      });
+    </script>
 
-<br/>
-<%= link_to 'Edit', edit_user_album_path(@user,@album) %> |
-<%= link_to 'Back', user_albums_path %>
+    <style type="text/css">
+      #gallery {
+        padding: 30px;
+        background: #e1eef5;
+      }
+
+      #descriptions{
+        position: relative;
+        height: 50px;
+        background: #eee;
+        margin-top: 10px;
+        width: 640px;
+        padding: 10px;
+        overflow: hidden;
+      }
+
+      #descriptions .ad-image-description {
+        position: absolute;
+      }
+
+      #descriptions .ad-image-description .ad-description-title {
+        display: block;
+       }
+    </style>
+
+    <% unless @album.photos.empty? %>
+    <div id="photos"> <!-- Div to show images -->
+      <div id="gallery" class="ad-gallery">
+        <div class="ad-image-wrapper"></div>
+
+        <div class="ad-controls"></div>
+
+        <div class="ad-nav">
+          <div class="ad-thumbs">
+            <ul class="ad-thumb-list">
+              <%= render :partial => @album.photos %>
+            </ul>
+          </div>
+        </div>
+
+      </div> <!-- end of gallery dom_id -->
+      <div class="descriptions"></div>
+    </div>
+  <% end %>
+
+    <h3>上传图片</h3>
+    <%= form_for [@user,@album,Photo.new(:album_id => @album.id)],:html => { :multipart => true } do |f| %>
+      <%= f.hidden_field :album_id, "value" => @album.id %>
+      <p>
+      <%= f.file_field :image %>
+      </p> 
+      <p><%= f.submit "Upload" %></p>
+    <% end %>
+
+    <br/>
+    <%= link_to 'Edit', edit_user_album_path(@user,@album) %> |
+    <%= link_to 'Back', user_albums_path %>
