@@ -39,7 +39,7 @@
   height: 50px;
   width: 85%;
   border: 1px solid #ccc;
-  padding; 4px 0 1px 5px;
+  padding: 4px 0 1px 5px;
 }
 
 .microblog form input[type=submit]{
@@ -141,3 +141,62 @@
   float:left;
   width: 120px;
 }
+
+.post-show {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid black; 
+}
+
+.content-body p {
+  line-height: 1.5em;
+  font-size: 1.2em;
+}
+
+
+/** css for comments */
+.comments {
+  border: 1px solid #ccc;
+  padding: 10px 10px;
+  width: 60%;
+}
+
+.comments #comments li{ 
+  margin-bottom: 16px;
+  padding: 8px;
+  list-style:none;
+  border: 1px dashed #ccc;
+}
+
+.comments #comments li .commentor{
+  margin-bottom: 8px;
+}
+
+.comments #comments li .comment_body{
+  margin-bottom: 8px;
+  line-height: 1.3em;
+}
+
+.comments #comments li .age{
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: gray;
+}
+
+.comments_form form textarea{
+  width: 700px;
+  height: 100px;
+}
+
+.comments_form form input[type=submit]{
+  width: 160px;
+  float:left;
+}
+
+
+/* css for paginate */
+.pagination a {
+  margin-left: 5px;
+  margin-right :5px;
+}
+

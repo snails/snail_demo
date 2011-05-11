@@ -21,6 +21,8 @@ class PostsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
+    @comments = @post.comments.paginate(:per_page => 7, :page => params[:page]) || Comment.new
+    
 
     respond_to do |format|
       format.html # show.html.erb

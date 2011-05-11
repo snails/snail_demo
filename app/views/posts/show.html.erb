@@ -1,21 +1,38 @@
-<%= kindeditor_javacript_include_tag %>
-<p id="notice"><%= notice %></p>
+<div class="post-show">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+  <div class='title'>
+   <h2> <%= @post.title %></h2>
+  </div>
 
-<p>
-  <b>Body:</b>
-  <%= raw(@post.body) %>
-</p>
- 
-<p>
-<b>Update AT:</b>
-<%= @post.updated_at %>
-</p>
+    <%= raw(@post.body) %>
+
+  <%= link_to 'Edit', edit_user_post_path(@user,@post) %> |
+  <%= link_to 'Back', user_posts_path(@user) %>
+</div>
 
 
-<%= link_to 'Edit', edit_user_post_path(@user,@post) %> |
-<%= link_to 'Back', user_posts_path(@user) %>
+<div class="comments">
+  <div><h3>Comments:</h3></div>
+  <ul id="comments">
+    <%= render :partial => @comments %>
+  </ul>
+  <%= will_paginate(@comments) %>
+</div>
+
+
+<div class="comments_form">
+  <%= form_for([@user,Comment.new], :remote => true) do |f| %>
+    <%= f.hidden_field :user_id, :value => @post.user_id %>
+    <%= f.hidden_field :post_id, :value => @post.id %>
+    <%= f.hidden_field :commentor, :value => current_user.name %>
+    <%= f.hidden_field :commentor_id, :value => current_user.id %>
+    <%= f.hidden_field :subject, :value => @post.title %>
+    <%= f.hidden_field :kind, :value => Comment::POST_COMMENT %>
+    <div>
+      <%= f.label :body %>:<br/>
+      <%= f.text_area :body %><br/>
+      <%=f.submit %>
+    </div>
+  <% end %>
+</div>

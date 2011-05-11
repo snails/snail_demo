@@ -1,0 +1,13 @@
+<%= content_tag_for(:li, comment) do %>
+  <div class="commentor">
+    <a href="/users/<%= comment.commentor_id %>">
+     <%= comment.commentor %>
+    </a>评论说：
+  </div>
+  <div class="comment_body"><%= comment.body %></div>
+  <span class="age">Posted at <%= time_ago_in_words(comment.created_at) %> ago.
+    <% if current_user.id == @user.id %>
+      (<%= link_to 'Delete', [@user,comment], :confirm => 'Are you sure?', :method => :delete, :remote => true %>)
+    <% end %>
+  </span>
+<% end %>

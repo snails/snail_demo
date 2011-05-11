@@ -22,6 +22,8 @@
 #
 
 class User < ActiveRecord::Base
+  #评论关联
+  has_many :comments, :dependent => :destroy
   #博客关联
   has_many :posts,  :dependent => :destroy
   #相册关联
@@ -37,7 +39,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
+  # Setup accessible (or protected) attributes for user model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
 
   #attributes Validation 

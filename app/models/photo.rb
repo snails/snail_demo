@@ -14,10 +14,13 @@
 #
 
 class Photo < ActiveRecord::Base
-
+  #设置可访问性
   attr_accessible :image, :album_id, :description
-
+  
+  #关联相册
   belongs_to :album
+  #关联评论
+  has_many :comments, :dependent => :destroy
 
 
   #图片的保存路径形式/public/uploads/<用户ID>/:style/:after_file_name.:extension

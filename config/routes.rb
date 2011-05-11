@@ -34,6 +34,7 @@ SnailDemo::Application.routes.draw do
         resources :photos
       end
       resources :posts
+      resources :comments
    end
 
   #设置根路径

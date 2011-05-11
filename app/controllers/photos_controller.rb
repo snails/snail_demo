@@ -97,7 +97,9 @@ class PhotosController < ApplicationController
     @user = current_user
     @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:id])
+    @photo.image.clear
     @photo.destroy
+
 
     respond_to do |format|
       format.html { redirect_to(user_album_url([@user,@album])) }
@@ -107,6 +109,7 @@ class PhotosController < ApplicationController
 
 
   private 
+
   def coerce(params)
     if params[:photo].nil? 
       h = Hash.new 

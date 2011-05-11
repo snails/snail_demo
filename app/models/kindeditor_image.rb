@@ -1,3 +1,15 @@
+# == Schema Information
+# Schema version: 20110509011902
+#
+# Table name: kindeditor_images
+#
+#  id                :integer(4)      not null, primary key
+#  data_file_name    :string(255)
+#  data_content_type :string(255)
+#  data_file_size    :integer(4)
+#  data_updated_at   :datetime
+#
+
 class KindeditorImage < ActiveRecord::Base
    before_create :randomize_file_name
     has_attached_file :data
