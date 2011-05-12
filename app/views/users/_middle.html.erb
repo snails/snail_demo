@@ -1,14 +1,10 @@
 <div class="col col_10"><!-- middle Part -->
   <% if @user == current_user %>
   <!-- new microblog form -->
-  <div class="microblog">
-    <span>发表微博:</span>
-    <form action = '#'>
-      <input type="textarea"/>
-      <input type="submit" value="Submit"/>
-    </form>
-  </div>
-<% end %>
+  <%= render 'twitters/form' %>
+ <% end %>
+
+  <%= render 'friendship/friend' %>
 
   <div class="feeds">
     <div class="author"><%= @user.name %></div>

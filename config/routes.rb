@@ -1,5 +1,5 @@
 SnailDemo::Application.routes.draw do
-
+  
 
   #Configed by the kindeditor
   get 'kindeditor/images_list'
@@ -35,6 +35,8 @@ SnailDemo::Application.routes.draw do
       end
       resources :posts
       resources :comments
+      resources :friendship, :only => ['index','accept','create','decline','cancle','delete']
+      resources :twitters
    end
 
   #设置根路径

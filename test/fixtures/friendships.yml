@@ -1,0 +1,27 @@
+# == Schema Information
+# Schema version: 20110512071418
+#
+# Table name: friendships
+#
+#  user_id     :integer(4)
+#  friend_id   :integer(4)
+#  status      :string(255)
+#  created_at  :datetime
+#  accepted_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  friend_id: 1
+  status: MyString
+  created_at: 2011-05-11 17:10:17
+  accepted_at: 2011-05-11 17:10:17
+
+two:
+  user_id: 1
+  friend_id: 1
+  status: MyString
+  created_at: 2011-05-11 17:10:17
+  accepted_at: 2011-05-11 17:10:17

@@ -1,0 +1,11 @@
+<div class = "microblog">
+  <span>发表微博:</span>
+  <%= form_for([@user,Twitter.new]) do |f| %>
+    <%= f.hidden_field :user_id, :value => @user.id %>
+    <div class="field">
+      <%= f.text_area :content %>
+      <%= f.submit 'Post'%>
+    </div>
+    <div class="clear"></div>
+  <% end %>
+</div>

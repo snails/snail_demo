@@ -32,12 +32,12 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
-.microblog form input[type=textarea] {
+.microblog form textarea {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   height: 50px;
-  width: 85%;
+  width: 83%;
   border: 1px solid #ccc;
   padding: 4px 0 1px 5px;
 }
@@ -45,7 +45,8 @@
 .microblog form input[type=submit]{
   float: right;
   margin-top: 5px;
-  height: 40px;
+  height: 50px;
+  width: 60px;
 }
 
 /* CSS for feeds */

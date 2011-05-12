@@ -1,0 +1,5 @@
+<!-- 此部分用于显示建立好友关系的链接 -->
+<% unless ( Friendship.exists?(@user,current_user) || @user == current_user ) %>
+  <%= link_to "Make Friends",{:controller => "friendship", :action => "create", :id => @user.id,
+    :confirm => "Send request to #{@user.name}?"} %>
+ <% end %>

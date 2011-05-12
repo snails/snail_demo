@@ -1,0 +1,36 @@
+<h1>Friendship#index</h1>
+<h2>Friends:</h2>
+<% unless @friends.empty? %>
+<ul>
+  <%= @friends.each do |friend| %>
+    <li><%= friend.name %></li>
+  <% end %>
+</ul>
+<% else %>
+  <h4>there are 0 friends of you.</h4>
+<% end %>
+
+
+<h2>Requested_Friends:</h2>
+<% unless @requested_friends.empty? %>
+<ul>
+  <%= @requested_friends.each do |friend| %>
+    <li><%= friend.name %></li>
+  <% end %>
+</ul>
+<% else %>
+  <h4>there are 0 requested friends of you.</h4>
+<% end %>
+
+
+<h2>Pending_Friends:</h2>
+<% unless @pending_friends.empty? %>
+<ul>
+  <%= @pending_friends.each do |friend| %>
+    <li><%= friend.name %></li>
+  <% end %>
+</ul>
+<% else %>
+  <h4>there are 0 pending friends of you.</h4>
+<% end %>
+

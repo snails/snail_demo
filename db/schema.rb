@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110510110126) do
+ActiveRecord::Schema.define(:version => 20110512081201) do
 
   create_table "albums", :force => true do |t|
     t.integer  "user_id",     :default => -1
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(:version => 20110510110126) do
 
   add_index "faqs", ["user_id"], :name => "index_faqs_on_user_id"
 
+  create_table "friendships", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "accepted_at"
+  end
+
+  add_index "friendships", ["user_id", "friend_id"], :name => "index_friendships_on_user_id_and_friend_id"
+  add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
+
   create_table "kindeditor_images", :force => true do |t|
     t.string   "data_file_name"
     t.string   "data_content_type"
@@ -98,6 +109,12 @@ ActiveRecord::Schema.define(:version => 20110510110126) do
   end
 
   add_index "specs", ["user_id"], :name => "index_specs_on_user_id"
+
+  create_table "twitters", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "",    :null => false

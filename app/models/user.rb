@@ -22,6 +22,27 @@
 #
 
 class User < ActiveRecord::Base
+  #关联微博
+  has_many :twitters, :dependent => :destroy
+  #好友关联
+  has_many :friendships, :dependent => :destroy
+  has_many :friends, 
+           :through => :friendships,
+           :conditions => "status = 'accepted'",
+           :order => :name
+
+  has_many :requested_friends,
+           :through => :friendships,
+           :source => :friend,
+           :conditions => "status = 'requested'",
+           :order => :created_at
+
+  has_many :pending_friends,
+           :through => :friendships,
+           :source => :friend,
+           :conditions => "status = 'pending'",
+           :order => :created_at
+
   #评论关联
   has_many :comments, :dependent => :destroy
   #博客关联

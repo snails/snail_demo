@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110509014559
+# Schema version: 20110511091017
 #
 # Table name: comments
 #
@@ -10,7 +10,7 @@
 #  commentor    :string(255)
 #  commentor_id :integer(4)      not null
 #  body         :text
-#  type         :integer(4)
+#  kind         :integer(4)
 #  created_at   :datetime
 #  subject      :string(255)
 #
